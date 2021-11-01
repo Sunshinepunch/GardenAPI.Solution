@@ -16,4 +16,4 @@ using GardenAPI.Models;
         public DbSet<GardenAPI.Models.Seed> Seeds { get; set;}
     }
 
-
+    
