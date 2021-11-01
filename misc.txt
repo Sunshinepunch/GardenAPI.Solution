@@ -1,0 +1,3 @@
+
+dotnet new webapi --framework net5.0
+dotnet aspnet-codegenerator controller -name SeedsController -async -api -m Seed -dc GardenAPIContext -outDir Controllers

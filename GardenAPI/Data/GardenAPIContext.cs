@@ -13,4 +13,7 @@ using GardenAPI.Models;
         }
 
         public DbSet<GardenAPI.Models.ZipZone> ZipZone { get; set; }
+        public DbSet<GardenAPI.Models.Seed> Seeds { get; set;}
     }
+
+

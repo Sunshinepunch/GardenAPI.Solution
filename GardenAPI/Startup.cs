@@ -34,8 +34,11 @@ namespace GardenAPI
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "GardenAPI", Version = "v1" });
             });
 
-            services.AddDbContext<GardenAPIContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("GardenAPIContext")));
+            services.AddDbContext<GardenAPIContext>(opt =>
+                opt.UseMySql(Configuration["ConnectionStrings:DefaultConnection"], ServerVersion.AutoDetect(Configuration["ConnectionStrings:DefaultConnection"])));
+                services.AddControllers();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

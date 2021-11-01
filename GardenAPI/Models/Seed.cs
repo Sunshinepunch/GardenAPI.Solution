@@ -1,4 +1,4 @@
-namespace GardenAPI
+namespace GardenAPI.Models
 {
   public class Seed
   {
