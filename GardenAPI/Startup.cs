@@ -35,6 +35,7 @@ namespace GardenAPI
             });
 
             services.AddDbContext<GardenAPIContext>(opt =>
+                // options.UseSqlite(Configuration.GetConnectionString(""))
                 opt.UseMySql(Configuration["ConnectionStrings:DefaultConnection"], ServerVersion.AutoDetect(Configuration["ConnectionStrings:DefaultConnection"])));
                 services.AddControllers();
 
@@ -51,7 +52,7 @@ namespace GardenAPI
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "GardenAPI v1"));
             }
 
-            app.UseHttpsRedirection();
+            // app.UseHttpsRedirection();
 
             app.UseRouting();
 

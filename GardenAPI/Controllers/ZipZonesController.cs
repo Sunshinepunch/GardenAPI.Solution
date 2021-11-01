@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using GardenAPI.Models;
+using GardenAPI.Data;
+using Microsoft.Extensions.Logging;
 
 namespace GardenAPI.Controllers
 {
@@ -13,6 +15,7 @@ namespace GardenAPI.Controllers
     [ApiController]
     public class ZipZonesController : ControllerBase
     {
+        // private readonly GardenAPIContext _context;
         private readonly GardenAPIContext _context;
 
         public ZipZonesController(GardenAPIContext context)
@@ -24,14 +27,14 @@ namespace GardenAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ZipZone>>> GetZipZone()
         {
-            return await _context.ZipZone.ToListAsync();
+            return await _context.ZipZones.ToListAsync();
         }
 
         // GET: api/ZipZones/5
         [HttpGet("{id}")]
         public async Task<ActionResult<ZipZone>> GetZipZone(int id)
         {
-            var zipZone = await _context.ZipZone.FindAsync(id);
+            var zipZone = await _context.ZipZones.FindAsync(id);
 
             if (zipZone == null)
             {
@@ -77,7 +80,7 @@ namespace GardenAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<ZipZone>> PostZipZone(ZipZone zipZone)
         {
-            _context.ZipZone.Add(zipZone);
+            _context.ZipZones.Add(zipZone);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetZipZone", new { id = zipZone.ZipZoneId }, zipZone);
@@ -87,13 +90,13 @@ namespace GardenAPI.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteZipZone(int id)
         {
-            var zipZone = await _context.ZipZone.FindAsync(id);
+            var zipZone = await _context.ZipZones.FindAsync(id);
             if (zipZone == null)
             {
                 return NotFound();
             }
 
-            _context.ZipZone.Remove(zipZone);
+            _context.ZipZones.Remove(zipZone);
             await _context.SaveChangesAsync();
 
             return NoContent();
@@ -101,7 +104,7 @@ namespace GardenAPI.Controllers
 
         private bool ZipZoneExists(int id)
         {
-            return _context.ZipZone.Any(e => e.ZipZoneId == id);
+            return _context.ZipZones.Any(e => e.ZipZoneId == id);
         }
     }
 }

@@ -1,3 +1,19 @@
 
 dotnet new webapi --framework net5.0
 dotnet aspnet-codegenerator controller -name SeedsController -async -api -m Seed -dc GardenAPIContext -outDir Controllers
+
+
+Project Commander - Anna ClarkE
+
+Project Vice-Lieutenant - Becket StrongArm Harvey
+
+Project Espirit D'Corps - Connor "Danger" Hansen
+
+Project Scapegoat - Brandon Eads
+
+Project Paigemaster - Mistress Paige
+
+
+No suitable constructor was found for entity type 'ZipZone'. The following construct
+ors had parameters that could not be bound to properties of the entity type: cannot bind 
+'zipcode' in 'ZipZone(int zipZoneId, int zipcode, int zone)'.
