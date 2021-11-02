@@ -30,12 +30,10 @@ namespace GardenAPI.Data
     {
       string data = GetData();
       var items = JsonSerializer.Deserialize<List<Dictionary<string, int>>>(data);
-      int counter = 1;
       foreach (var item in items)
       {
-        var s = new ZipZone(counter, item["zipcode"], item["zone"]);
+        var s = new ZipZone(item["zipcode"], item["zone"]);
         _db.ZipZones.Add(s);
-        counter++;
       }
       _db.SaveChanges();
     }

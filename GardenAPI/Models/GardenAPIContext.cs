@@ -20,7 +20,6 @@ public class GardenAPIContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
-
     }
 }
 
