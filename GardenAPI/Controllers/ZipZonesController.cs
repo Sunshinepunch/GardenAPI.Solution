@@ -22,31 +22,29 @@ namespace GardenAPI.Controllers
         {
             _context = context;
         }
-
-        // GET: api/ZipZones
+        
+        // zipcode is required, getting all zipzones at once breaks api
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<ZipZone>>> GetZipZone()
+        public async Task<ActionResult<IEnumerable<ZipZone>>> GetAll(int zipcode)
         {
-            return await _context.ZipZones.ToListAsync();
-        }
+            var query = _context.ZipZones.AsQueryable();
 
-        // GET: api/ZipZones/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<ZipZone>> GetZipZone(int id)
-        {
-            var zipZone = await _context.ZipZones.FindAsync(id);
-
-            if (zipZone == null)
+            if (zipcode > 0 && zipcode != 0)
             {
-                return NotFound();
+                query = query.Where(entry => entry.ZipCode == zipcode);
+            }
+
+            List<ZipZone> zipZone = await query.ToListAsync();
+
+            if(zipZone.Count() > 1)
+            {
+                return BadRequest();
             }
 
             return zipZone;
         }
 
-        private bool ZipZoneExists(int id)
-        {
-            return _context.ZipZones.Any(e => e.ZipCode == id);
-        }
+        // ZipZones will not have any PUT, PATCH, DELETE, etc., since
+        // we don't want users to be able to change Zip Codes. Only GET one zipcode at a time.
     }
 }

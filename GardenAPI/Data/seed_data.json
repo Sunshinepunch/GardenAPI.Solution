@@ -1,0 +1,101 @@
+[
+  {
+    "seedname": "tomato",
+    "sqfootplant": 1,
+    "daystillharvest": 85,
+    "waterinterval": 1,
+    "daystillsprout": 10,
+    "companions": "basil, garlic, parsley, amaranth, carrot, borage, marigold, onion, sage, cucumber",
+    "enemies": "cabbage, broccoli, fennel, corn, kale, dill, pepper, eggplant, potato, brussel sprouts, cauliflower, collards, kholrabi,",
+    "notes": "full sun, start indoors and transplant",
+    "zone": "5, 6, 7, 8, 9, 10, 11"
+  },
+  {
+    "seedname": "radish",
+    "sqfootplant": 16,
+    "daystillharvest": 60,
+    "waterinterval": 5,
+    "daystillsprout": 4,
+    "companions": "lettuce, tomato, carrot, onion, pepper, peas, cucumber, spinach",
+    "enemies": "cabbage, broccoli, kale, brussel sprouts, cauliflower, collards, kholrabi, hyssop, turnip",
+    "notes": "full sun,  direct sow outdoors",
+    "zone": "5, 6, 7, 8, 9"
+  },
+  {
+    "seedname": "corn",
+    "sqfootplant": 4,
+    "daystillharvest": 100,
+    "waterinterval": 5,
+    "daystillsprout": 14,
+    "companions": "borage, cucumber, dill, melon, marigold, pole beans, nasturtium",
+    "enemies": "cabbage, broccoli, fennel, kale, pepper, eggplant, brussel sprouts, cauliflower, collards, kholrabi,",
+    "notes": "full sun, start indoors and transplant or direct seed outdoors",
+    "zone": "4, 5, 6, 7, 8, 9"
+  },
+  {
+    "seedname": "spinach",
+    "sqfootplant": 9,
+    "daystillharvest": 45,
+    "waterinterval": 2,
+    "daystillsprout": 5,
+    "companions": "cabbage, kale, cauliflower, collards, eggplant, leek, lettuce, brussels sprouts, kohlrabi, asparagus, strawberries, radish, beans, peas, nasturtium, petunia, marigold",
+    "enemies": "sunflowers, fennel, pumpkins, melons, corn, potatoes",
+    "notes": "full sun, direct sow outdoors",
+    "zone": "2, 3, 4, 5, 6, 7, 8, 9"
+  },
+  {
+    "seedname": "pumpkin",
+    "sqfootplant": 1,
+    "daystillharvest": 120,
+    "waterinterval": 3,
+    "daystillsprout": 10,
+    "companions": "corn, beans, radish, nasturtium, aromatic herbs",
+    "enemies": "beet, onion, potato, cabbage, broccoli, kale, brussel sprouts, cauliflower, collards, kholrabi",
+    "notes": "full sun, direct sow outdoors",
+    "zone": "3, 4, 5, 6, 7"
+  },
+  {
+    "seedname": "watermelon",
+    "sqfootplant": 1,
+    "daystillharvest": 90,
+    "waterinterval": 3,
+    "daystillsprout": 12,
+    "companions": "peas, pole beans, bush beans, onions, leeks, chives, and garlic, cabbage, broccoli, cauliflower, carrots, kale, okra, spinach, sunflowers, lettuce, brussels sprouts",
+    "enemies": "any new plants grown by seed (watermelons release chemicals that inhibit seed growth)",
+    "notes": "full sun, start indoors and transplant",
+    "zone": "3, 4, 5, 6, 7, 8, 9, 10, 11"
+  },
+  {
+    "seedname": "onion",
+    "sqfootplant": 4,
+    "daystillharvest": 90,
+    "waterinterval": 3,
+    "daystillsprout": 10,
+    "companions": "cabbage, broccoli, kale, brussel sprouts, cauliflower, collards, kholrabi, carrot, leek, beet, strawberries",
+    "enemies": "peas, pole beans, bush beans, asparagus",
+    "notes": "full sun, direct sow or from bulb outdoors",
+    "zone": "1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11"
+  },
+  {
+    "seedname": "loose-leaf lettuce",
+    "sqfootplant": 4,
+    "daystillharvest": 45,
+    "waterinterval": 4,
+    "daystillsprout": 10,
+    "companions": "chives, garlic, marigold, beet, carrot, parsnip, onion, strawberries, corn, eggplant, tomato, corn, asparagus, peas, radish",
+    "enemies": "cabbage, broccoli, kale, brussel sprouts, cauliflower, collards, kholrabi",
+    "notes": "full sun, direct sow outdoors",
+    "zone": "2, 3, 4, 5, 6, 7, 8, 9"
+  },
+  {
+    "seedname": "pole beans",
+    "sqfootplant": 4,
+    "daystillharvest": 80,
+    "waterinterval": 3,
+    "daystillsprout": 10,
+    "companions": "carrot, catnip, celery, chamomile, corn, cucumber, marigold, nasturtium, oregano",
+    "enemies": "chives, garlic, leek, onion",
+    "notes": "full sun, direct sow outdoors",
+    "zone": "2, 3, 4, 5, 6, 7, 8, 9, 10, 11"
+  }
+]

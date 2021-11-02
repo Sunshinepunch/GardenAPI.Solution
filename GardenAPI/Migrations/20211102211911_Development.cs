@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace GardenAPI.Migrations
 {
-    public partial class Initial2 : Migration
+    public partial class Development : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -19,7 +19,9 @@ namespace GardenAPI.Migrations
                     WaterInterval = table.Column<int>(type: "int", nullable: false),
                     DaysTillSprout = table.Column<int>(type: "int", nullable: false),
                     Companions = table.Column<string>(type: "longtext CHARACTER SET utf8mb4", nullable: true),
-                    Enemies = table.Column<string>(type: "longtext CHARACTER SET utf8mb4", nullable: true)
+                    Enemies = table.Column<string>(type: "longtext CHARACTER SET utf8mb4", nullable: true),
+                    Notes = table.Column<string>(type: "longtext CHARACTER SET utf8mb4", nullable: true),
+                    Zone = table.Column<string>(type: "longtext CHARACTER SET utf8mb4", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -27,7 +29,7 @@ namespace GardenAPI.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ZipZone",
+                name: "ZipZones",
                 columns: table => new
                 {
                     ZipZoneId = table.Column<int>(type: "int", nullable: false)
@@ -37,7 +39,7 @@ namespace GardenAPI.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ZipZone", x => x.ZipZoneId);
+                    table.PrimaryKey("PK_ZipZones", x => x.ZipZoneId);
                 });
         }
 
@@ -47,7 +49,7 @@ namespace GardenAPI.Migrations
                 name: "Seeds");
 
             migrationBuilder.DropTable(
-                name: "ZipZone");
+                name: "ZipZones");
         }
     }
 }

@@ -14,13 +14,15 @@ namespace GardenAPI.Data
       _db = db;
       _env = env;
     }
+
+    // If no data for ZipZones exists in the db, seed it with zip_zone.json
     public void Seed()
     {
       _db.Database.EnsureCreated();
       if (!_db.ZipZones.Any())
       {
-        var Seeder = new ZipZoneSeeder(_db, _env);
-        Seeder.Seed();
+        var ZipZoneSeeder = new ZipZoneSeeder(_db, _env);
+        ZipZoneSeeder.Seed();
       }
     }
   }

@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace GardenAPI.Models
 {
   public class Seed
@@ -14,9 +16,10 @@ namespace GardenAPI.Models
     public string Companions { get; set; }
     public string Enemies { get; set; }
     public string Notes { get; set; }
+    public string Zone { get; set; }
 
     public Seed(string seedname, int sqfootplant, int daystillharvest, int waterinterval,
-               int daystillsprout, string companions, string enemies, string notes)
+               int daystillsprout, string companions, string enemies, string notes, string zone)
     {
       SeedName = seedname;
       SqFootPlant = sqfootplant;
@@ -26,6 +29,7 @@ namespace GardenAPI.Models
       Companions = companions;
       Enemies = enemies;
       Notes = notes;
+      Zone = zone;
     }
   }
 }

@@ -16,7 +16,9 @@ namespace GardenAPI.Data
       _db = db;
       _env = env;
     }
-    private string GetData()
+
+    // Define file path to zipcode data, return raw json
+    private string GetDataZipZones()
     {
       string rootPath = _env.ContentRootPath;
       string filePath = Path.GetFullPath(Path.Combine(rootPath, "Data", "zip_zone.json"));
@@ -26,9 +28,11 @@ namespace GardenAPI.Data
         return json;
       }
     }
+
+     // Grab data from zip_zone.json, format into object for the db
     public void Seed()
     {
-      string data = GetData();
+      string data = GetDataZipZones();
       var items = JsonSerializer.Deserialize<List<Dictionary<string, int>>>(data);
       foreach (var item in items)
       {

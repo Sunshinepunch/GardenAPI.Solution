@@ -7,8 +7,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GardenAPI.Migrations
 {
     [DbContext(typeof(GardenAPIContext))]
-    [Migration("20211101184351_Initial2")]
-    partial class Initial2
+    [Migration("20211102211911_Development")]
+    partial class Development
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -35,6 +35,9 @@ namespace GardenAPI.Migrations
                     b.Property<string>("Enemies")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
+                    b.Property<string>("Notes")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
                     b.Property<string>("SeedName")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
@@ -43,6 +46,9 @@ namespace GardenAPI.Migrations
 
                     b.Property<int>("WaterInterval")
                         .HasColumnType("int");
+
+                    b.Property<string>("Zone")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.HasKey("SeedId");
 
@@ -63,7 +69,7 @@ namespace GardenAPI.Migrations
 
                     b.HasKey("ZipZoneId");
 
-                    b.ToTable("ZipZone");
+                    b.ToTable("ZipZones");
                 });
 #pragma warning restore 612, 618
         }
