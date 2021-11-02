@@ -34,7 +34,7 @@ namespace GardenAPI.Data
       {
         var s = new Seed(item["seedname"], item["sqfootplant"], item["daystillharvest"],
                         item["waterinterval"], item["daystillsprout"], item["companions"],
-                        item["enemies"]);
+                        item["enemies"], item["notes"]);
         _db.Seeds.Add(s);
       }
       _db.SaveChanges();

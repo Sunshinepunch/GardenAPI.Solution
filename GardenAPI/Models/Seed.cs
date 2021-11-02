@@ -13,9 +13,10 @@ namespace GardenAPI.Models
     public int DaysTillSprout { get; set; }
     public string Companions { get; set; }
     public string Enemies { get; set; }
+    public string Notes { get; set; }
 
     public Seed(string seedname, int sqfootplant, int daystillharvest, int waterinterval,
-               int daystillsprout, string companions, string enemies)
+               int daystillsprout, string companions, string enemies, string notes)
     {
       SeedName = seedname;
       SqFootPlant = sqfootplant;
@@ -24,6 +25,7 @@ namespace GardenAPI.Models
       DaysTillSprout = daystillsprout;
       Companions = companions;
       Enemies = enemies;
+      Notes = notes;
     }
   }
 }
