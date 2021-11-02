@@ -1,8 +1,8 @@
-# Garden API
+# 🌿 Garden API 🌿
 
 ### By Anna Clarke and Connor Hansen
 
-An API that allows developers to look up their plant hardiness zone by their zipcode, and information on a variety of seeds.
+This API stores information for everyday gardening.
 
 ## Technologies Used
 * C#
@@ -10,6 +10,10 @@ An API that allows developers to look up their plant hardiness zone by their zip
 * Entity Framework Core
 * Swagger
 * MySql
+
+## Description
+
+An API that allows developers to look up their plant hardiness zone by their zipcode. Also provides a table of seed information, including reccomended number of seedlings per square foot, estimated days till harvest, reccomended days between watering, estimated days till germination, beneficial/harmful plant neighbors, notes, and hardiness zones. Developers can search plants by their name, companions, enemies, notes and hardiness zones. Developers can update, delete, and create new seeds.
 
 ## Setup and Usage
 
@@ -32,7 +36,7 @@ An API that allows developers to look up their plant hardiness zone by their zip
   },
   "AllowedHosts": "*",
   "ConnectionStrings": {
-    "DefaultConnection": "Server=localhost;Port=3306;database=parks_and_api;uid=root;pwd=YOUR_PASSWORD;"
+    "DefaultConnection": "Server=localhost;Port=3306;database=garden_api;uid=root;pwd=YOUR_PASSWORD;"
   }
 }
 ```
@@ -51,44 +55,70 @@ After completing all setup instructions, use Swagger in your browser to easily v
 
 Base URL: http://localhost:5004
 
-### HTTP Request
+###  🌐 ZipZones 🌐
 
-GET /api/seeds
-POST /api/seeds
-GET /api/seeds/{id}
-PUT /api/seeds/{id}
-DELETE /api/seeds/{id}
+#### HTTP Request
+
+GET /api/ZipZones
 
 ### Path Parameters
 
 | Parameter | Type | Default | Required | Description |
 | :---: | :---: | :---: | :---: | --- |
-| name | string | none | true | Returns exact match of name the of the park.
-|statePark | string | none| true | Returns parks that are either state parks or not, accepts "true", "yes", "false", or "no".
-| nationalPark | string | none | true | Returns parks that are either state parks or not, accepts "true", "yes", "false", or "no".
-| activities | string | none | false | Returns parks that contain that activity in activities.
-| acreage | int | 0 | false | Returns parks with that exact number of acres.
-| location | string | none | false | Returns parks that contain the entered string in their address (ex. city name, zip code, or state code) |
+| zipcode | int | none | true | Returns hardiness zone for search zipcode |
 
 ### Example Query
 `
-http://localhost:5000/api/Parks/?location=Seattle&activities=hiking
+http://localhost:5004/api/ZipZones/?zipcode=97035
+`
+
+### Example JSON Response
+`
+[{"zipZoneId":12985,"zipCode":97035,"zone":8}]
+`
+### 🌱 Seeds 🌱
+
+#### HTTP Request
+
+GET /api/Seeds
+POST /api/Seeds
+GET /api/Seeds/{id}
+PUT /api/Seeds/{id}
+DELETE /api/Seeds/{id}
+
+### Path Parameters
+
+| Parameter | Type | Default | Required | Description |
+| :---: | :---: | :---: | :---: | --- |
+| seedname | string | none | false | Returns exact match of name the of the plant.
+| companions | string | none| false | Returns plants that are good matches with this plant.
+| enemies | string | none | false | Returns plants that are bad matches with this plant.
+| zones | string | none | false | Returns plants that will grow in that hardiness zone.
+| notes | string | none | false | Returns plants whos notes contain search query.
+
+### Example Query
+`
+http://localhost:5004/api/Seeds/?seedname=tomato
 `
 
 ### Example JSON Response
 ```
 [
   {
-    "parkId": 2,
-    "name": "Discovery Park",
-    "statePark": false,
-    "nationalPark": false,
-    "activities": "hiking, beach access, historic lighthouse",
-    "acreage": 534,
-    "address": "3801 Discovery Park Blvd, Seattle, WA 98199"
+    "seedId": 2,
+    "seedName": "tomato",
+    "sqFootPlant": 1,
+    "daysTillHarvest": 85,
+    "waterInterval": 1,
+    "daysTillSprout": 10,
+    "companions": "basil, garlic, parsley, amaranth, carrot, borage, marigold, onion, sage, cucumber",
+    "enemies": "cabbage, broccoli, fennel, corn, kale, dill, pepper, eggplant, potato, brussel sprouts, cauliflower, collards, kholrabi,",
+    "notes": "full sun, start indoors and transplant",
+    "zone": "5, 6, 7, 8, 9, 10, 11"
   }
 ]
 ```
+
 
 ## Known Bugs
 
@@ -98,8 +128,9 @@ http://localhost:5000/api/Parks/?location=Seattle&activities=hiking
 
 _[MIT](https://opensource.org/licenses/MIT)_  
 
-Copyright (c) 2021 Anna Clarke
+Copyright (c) 2021 Anna Clarke, Connor Hansen
 
 ## Contact Information
 
 Anna Clarke: <anclarkie@gmail.com>
+Connor Hansen: <chansen13@georgefox.edu>

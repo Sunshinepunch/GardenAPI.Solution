@@ -25,7 +25,7 @@ namespace GardenAPI.Controllers
         
         // zipcode is required, getting all zipzones at once breaks api
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<ZipZone>>> GetAll(int zipcode)
+        public async Task<ActionResult<IEnumerable<ZipZone>>> Get(int zipcode)
         {
             var query = _context.ZipZones.AsQueryable();
 
@@ -36,7 +36,7 @@ namespace GardenAPI.Controllers
 
             List<ZipZone> zipZone = await query.ToListAsync();
 
-            if(zipZone.Count() > 1)
+            if(zipZone.Count() < 1)
             {
                 return BadRequest();
             }

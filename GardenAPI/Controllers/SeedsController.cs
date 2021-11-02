@@ -21,10 +21,38 @@ namespace GardenAPI.Controllers
         }
 
         // GET: api/Seeds
+        // default returns all seeds, certain search terms are allowed
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Seed>>> GetSeeds()
+        public async Task<ActionResult<IEnumerable<Seed>>> Get(string seedname,
+                        string companions, string enemies, string notes, string zone)
         {
-            return await _context.Seeds.ToListAsync();
+            var query = _context.Seeds.AsQueryable();
+
+            if (seedname != null)
+            {
+                query = query.Where(entry => entry.SeedName == seedname);
+            }
+            if (companions != null)
+            {
+                query = query.Where(entry => entry.Companions.Contains(companions));
+            }
+            if (enemies != null)
+            {
+                query = query.Where(entry => entry.Enemies.Contains(enemies));
+            }
+            if (zone != null)
+            {
+                query = query.Where(entry => entry.Zone.Contains(zone));
+            }
+
+            List<Seed> seedList = await query.ToListAsync();
+
+            if(seedList.Count() < 1)
+            {
+                return BadRequest();
+            }
+
+            return seedList;
         }
 
         // GET: api/Seeds/5
