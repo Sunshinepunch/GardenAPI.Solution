@@ -36,7 +36,7 @@ namespace GardenAPI.Controllers
 
             List<ZipZone> zipZone = await query.ToListAsync();
 
-            if(zipZone.Count() < 1)
+            if(zipZone.Count() > 1)
             {
                 return BadRequest();
             }

@@ -49,11 +49,11 @@ An API that allows developers to look up their plant hardiness zone by their zip
 
 ### Using Swagger Documentation
 
-After completing all setup instructions, use Swagger in your browser to easily view endpoints and manipulate the database. Go to the following URL `http://localhost:5004/index.html` to explore the api with Swagger.
+After completing all setup instructions, use Swagger in your browser to easily view endpoints and manipulate the database. Go to the following URL `https://localhost:5004/index.html` to explore the api with Swagger.
 
 ### Endpoints
 
-Base URL: http://localhost:5004
+Base URL: https://localhost:5004
 
 ###  🌐 ZipZones 🌐
 
@@ -69,7 +69,7 @@ GET /api/ZipZones
 
 ### Example Query
 `
-http://localhost:5004/api/ZipZones/?zipcode=97035
+https://localhost:5004/api/ZipZones/?zipcode=97035
 `
 
 ### Example JSON Response
